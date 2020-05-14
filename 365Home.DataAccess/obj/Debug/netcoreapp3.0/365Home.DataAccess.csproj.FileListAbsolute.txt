@@ -1,0 +1,52 @@
+E:\Study\FPT\Greenwich\Project Final\365Home\365Home\365Home.DataAccess\bin\Debug\netcoreapp3.0\365Home.DataAccess.deps.json
+E:\Study\FPT\Greenwich\Project Final\365Home\365Home\365Home.DataAccess\bin\Debug\netcoreapp3.0\365Home.DataAccess.dll
+E:\Study\FPT\Greenwich\Project Final\365Home\365Home\365Home.DataAccess\bin\Debug\netcoreapp3.0\365Home.DataAccess.pdb
+E:\Study\FPT\Greenwich\Project Final\365Home\365Home\365Home.DataAccess\bin\Debug\netcoreapp3.0\365Home.Models.dll
+E:\Study\FPT\Greenwich\Project Final\365Home\365Home\365Home.DataAccess\bin\Debug\netcoreapp3.0\365Home.Ultility.dll
+E:\Study\FPT\Greenwich\Project Final\365Home\365Home\365Home.DataAccess\bin\Debug\netcoreapp3.0\365Home.Models.pdb
+E:\Study\FPT\Greenwich\Project Final\365Home\365Home\365Home.DataAccess\bin\Debug\netcoreapp3.0\365Home.Ultility.pdb
+E:\Study\FPT\Greenwich\Project Final\365Home\365Home\365Home.DataAccess\obj\Debug\netcoreapp3.0\365Home.DataAccess.csprojAssemblyReference.cache
+E:\Study\FPT\Greenwich\Project Final\365Home\365Home\365Home.DataAccess\obj\Debug\netcoreapp3.0\365Home.DataAccess.AssemblyInfoInputs.cache
+E:\Study\FPT\Greenwich\Project Final\365Home\365Home\365Home.DataAccess\obj\Debug\netcoreapp3.0\365Home.DataAccess.AssemblyInfo.cs
+E:\Study\FPT\Greenwich\Project Final\365Home\365Home\365Home.DataAccess\obj\Debug\netcoreapp3.0\365Home.DataAccess.csproj.CopyComplete
+E:\Study\FPT\Greenwich\Project Final\365Home\365Home\365Home.DataAccess\obj\Debug\netcoreapp3.0\365Home.DataAccess.dll
+E:\Study\FPT\Greenwich\Project Final\365Home\365Home\365Home.DataAccess\obj\Debug\netcoreapp3.0\365Home.DataAccess.pdb
+C:\Users\PC\Dropbox\Private\365Home\365Home\365Home.DataAccess\bin\Debug\netcoreapp3.0\365Home.DataAccess.deps.json
+C:\Users\PC\Dropbox\Private\365Home\365Home\365Home.DataAccess\bin\Debug\netcoreapp3.0\365Home.DataAccess.dll
+C:\Users\PC\Dropbox\Private\365Home\365Home\365Home.DataAccess\bin\Debug\netcoreapp3.0\365Home.DataAccess.pdb
+C:\Users\PC\Dropbox\Private\365Home\365Home\365Home.DataAccess\bin\Debug\netcoreapp3.0\365Home.Models.dll
+C:\Users\PC\Dropbox\Private\365Home\365Home\365Home.DataAccess\bin\Debug\netcoreapp3.0\365Home.Ultility.dll
+C:\Users\PC\Dropbox\Private\365Home\365Home\365Home.DataAccess\bin\Debug\netcoreapp3.0\365Home.Models.pdb
+C:\Users\PC\Dropbox\Private\365Home\365Home\365Home.DataAccess\bin\Debug\netcoreapp3.0\365Home.Ultility.pdb
+C:\Users\PC\Dropbox\Private\365Home\365Home\365Home.DataAccess\obj\Debug\netcoreapp3.0\365Home.DataAccess.csprojAssemblyReference.cache
+C:\Users\PC\Dropbox\Private\365Home\365Home\365Home.DataAccess\obj\Debug\netcoreapp3.0\365Home.DataAccess.AssemblyInfoInputs.cache
+C:\Users\PC\Dropbox\Private\365Home\365Home\365Home.DataAccess\obj\Debug\netcoreapp3.0\365Home.DataAccess.AssemblyInfo.cs
+C:\Users\PC\Dropbox\Private\365Home\365Home\365Home.DataAccess\obj\Debug\netcoreapp3.0\365Home.DataAccess.csproj.CopyComplete
+C:\Users\PC\Dropbox\Private\365Home\365Home\365Home.DataAccess\obj\Debug\netcoreapp3.0\365Home.DataAccess.dll
+C:\Users\PC\Dropbox\Private\365Home\365Home\365Home.DataAccess\obj\Debug\netcoreapp3.0\365Home.DataAccess.pdb
+C:\Users\Tri\Dropbox\Private\365Home\365Home\365Home.DataAccess\bin\Debug\netcoreapp3.0\365Home.DataAccess.deps.json
+C:\Users\Tri\Dropbox\Private\365Home\365Home\365Home.DataAccess\bin\Debug\netcoreapp3.0\365Home.DataAccess.dll
+C:\Users\Tri\Dropbox\Private\365Home\365Home\365Home.DataAccess\bin\Debug\netcoreapp3.0\365Home.DataAccess.pdb
+C:\Users\Tri\Dropbox\Private\365Home\365Home\365Home.DataAccess\bin\Debug\netcoreapp3.0\365Home.Models.dll
+C:\Users\Tri\Dropbox\Private\365Home\365Home\365Home.DataAccess\bin\Debug\netcoreapp3.0\365Home.Ultility.dll
+C:\Users\Tri\Dropbox\Private\365Home\365Home\365Home.DataAccess\bin\Debug\netcoreapp3.0\365Home.Models.pdb
+C:\Users\Tri\Dropbox\Private\365Home\365Home\365Home.DataAccess\bin\Debug\netcoreapp3.0\365Home.Ultility.pdb
+C:\Users\Tri\Dropbox\Private\365Home\365Home\365Home.DataAccess\obj\Debug\netcoreapp3.0\365Home.DataAccess.csprojAssemblyReference.cache
+C:\Users\Tri\Dropbox\Private\365Home\365Home\365Home.DataAccess\obj\Debug\netcoreapp3.0\365Home.DataAccess.AssemblyInfoInputs.cache
+C:\Users\Tri\Dropbox\Private\365Home\365Home\365Home.DataAccess\obj\Debug\netcoreapp3.0\365Home.DataAccess.AssemblyInfo.cs
+C:\Users\Tri\Dropbox\Private\365Home\365Home\365Home.DataAccess\obj\Debug\netcoreapp3.0\365Home.DataAccess.csproj.CopyComplete
+C:\Users\Tri\Dropbox\Private\365Home\365Home\365Home.DataAccess\obj\Debug\netcoreapp3.0\365Home.DataAccess.dll
+C:\Users\Tri\Dropbox\Private\365Home\365Home\365Home.DataAccess\obj\Debug\netcoreapp3.0\365Home.DataAccess.pdb
+C:\Users\DELL\Dropbox\Private\365Home\365Home\365Home.DataAccess\bin\Debug\netcoreapp3.0\365Home.DataAccess.deps.json
+C:\Users\DELL\Dropbox\Private\365Home\365Home\365Home.DataAccess\bin\Debug\netcoreapp3.0\365Home.DataAccess.dll
+C:\Users\DELL\Dropbox\Private\365Home\365Home\365Home.DataAccess\bin\Debug\netcoreapp3.0\365Home.DataAccess.pdb
+C:\Users\DELL\Dropbox\Private\365Home\365Home\365Home.DataAccess\bin\Debug\netcoreapp3.0\365Home.Models.dll
+C:\Users\DELL\Dropbox\Private\365Home\365Home\365Home.DataAccess\bin\Debug\netcoreapp3.0\365Home.Ultility.dll
+C:\Users\DELL\Dropbox\Private\365Home\365Home\365Home.DataAccess\bin\Debug\netcoreapp3.0\365Home.Models.pdb
+C:\Users\DELL\Dropbox\Private\365Home\365Home\365Home.DataAccess\bin\Debug\netcoreapp3.0\365Home.Ultility.pdb
+C:\Users\DELL\Dropbox\Private\365Home\365Home\365Home.DataAccess\obj\Debug\netcoreapp3.0\365Home.DataAccess.csprojAssemblyReference.cache
+C:\Users\DELL\Dropbox\Private\365Home\365Home\365Home.DataAccess\obj\Debug\netcoreapp3.0\365Home.DataAccess.AssemblyInfoInputs.cache
+C:\Users\DELL\Dropbox\Private\365Home\365Home\365Home.DataAccess\obj\Debug\netcoreapp3.0\365Home.DataAccess.AssemblyInfo.cs
+C:\Users\DELL\Dropbox\Private\365Home\365Home\365Home.DataAccess\obj\Debug\netcoreapp3.0\365Home.DataAccess.csproj.CopyComplete
+C:\Users\DELL\Dropbox\Private\365Home\365Home\365Home.DataAccess\obj\Debug\netcoreapp3.0\365Home.DataAccess.dll
+C:\Users\DELL\Dropbox\Private\365Home\365Home\365Home.DataAccess\obj\Debug\netcoreapp3.0\365Home.DataAccess.pdb

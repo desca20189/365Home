@@ -1,0 +1,47 @@
+﻿@using _365Home.Ultility
+@{
+    var status = Context.Request.Query["status"];
+
+    var approved = "text-primary";
+    var pending = "text-primary";
+    var all = "text-primary";
+
+    if (status == "approved")
+    {
+        approved = "active text-white";
+    }
+    else
+    {
+        if (status == "pending")
+        {
+            pending = "active text-white";
+        }
+        else
+        {
+            all = "active text-white";
+        }
+    }
+}
+
+<div class="border backgroundWhite p-3">
+    <div class="d-flex justify-content-between mb-3">
+        <div class="p-2">
+            <h2 class="text-primary">Booking History</h2>
+        </div>
+    </div>
+    <table id="tblData" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>Booking ID</th>
+                <th>Booking Date</th>
+                <th>Number of Locations</th>
+                <th>Comments</th>
+                <th></th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="~/js/orderHistory.js"></script>
+}

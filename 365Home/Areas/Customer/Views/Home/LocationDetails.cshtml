@@ -1,0 +1,288 @@
+﻿@model _365Home.Models.ViewModels.CartLocationViewModel
+@using _365Home.Ultility
+@using  Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@using  _365Home.Extensions
+@using _365Home.Models.ViewModels
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "LocationDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var rentTimeEndDateError = ViewBag.RentTimeEndDateError;
+}
+
+@{
+    List<string> fullAddress = new List<string>();
+    if (@Model.Location.Address != null && @Model.Location.Address != "")
+    {
+        fullAddress.Add(@Model.Location.Address);
+    }
+    if (@Model.Location.Ward != null && @Model.Location.Ward.Name != null && @Model.Location.Ward.Name != "")
+    {
+        fullAddress.Add(@Model.Location.Ward.Name);
+    }
+    if (@Model.Location.District != null && @Model.Location.District.Name != null && @Model.Location.District.Name != "")
+    {
+        fullAddress.Add(@Model.Location.District.Name);
+    }
+    if (@Model.Location.Province != null && @Model.Location.Province.Name != null && @Model.Location.Province.Name != "")
+    {
+        fullAddress.Add(@Model.Location.Province.Name);
+    }
+    var displayAddress = String.Join(", ", fullAddress);
+
+}
+<form method="post" asp-action="AddToCart">
+    <div class="container backgroundWhite">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-header bg-light text-light ml-0 row container">
+                        <div class="col-12 col-md-12">
+                            <h5 class="text-primary font-weight-bold">@Model.Location.Name</h5>
+                        </div>
+                        <div class="col-12 col-md-12">
+                            <h5 class="text-primary font-weight-bold">Location Type: @Model.Location.LocationType.Name</h5>
+                        </div>
+                        <div class="col-12 col-md-12">
+                            <h5 class="text-muted text-info">Address: @displayAddress</h5>
+                        </div>
+                        <div class="col-6 col-md-6 text-md-left">
+                            <h5 class="font-weight-bold text-info">Price: @string.Format("{0:#,0}", @Model.Location.Price)<span>&#8363;</span> (Per Month)</h5>
+                        </div>
+                        <div class="col-6 col-md-6 text-md-right">
+                            <h5 class="font-weight-bold text-info">Area: @string.Format("{0:#,0}", @Model.Location.Area) m<sup>2</sup></h5>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="container rounded p-2">
+                            <div class="row">
+                                <div class="col-12 col-lg-12 text-center border-info">
+                                    @if (Model.Location.ImageList.Count > 0)
+                                    {
+                                        <div class="popup-gallery">
+                                            @{
+                                                var base64 = Convert.ToBase64String(Model.Location.ImageList.First().Picture);
+                                                var imgSrc = string.Format("data:image/jpg;base64,{0}", base64);
+                                                <a href="@imgSrc" title="@Model.Location.ImageList.First().Name"><img src="@imgSrc" height="200em" width="100%" /></a>
+                                                foreach (WebImages image in Model.Location.ImageList.Skip(1))
+                                                {
+                                                    base64 = Convert.ToBase64String(image.Picture);
+                                                    imgSrc = string.Format("data:image/jpg;base64,{0}", base64);
+                                                    <a href="@imgSrc" title="@image.Name"><img src="@imgSrc" width="75" height="75"></a>
+                                                }
+
+                                            }
+
+                                        </div>
+                                    }
+                                </div>
+                                <div class="col-12 col-lg-12 border-info">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <p class="text-secondary">@Html.Raw(Model.Location.Description)</p>
+                                        </div>
+
+                                    </div>
+
+                                    @if (SignInManager.IsSignedIn(User))
+                                    {
+                                        var userId = UserManager.GetUserId(User);
+                                        @if (userId != Model.Location.UserId)
+                                        {
+                                            @*@if (Model.UserAddressesList != null)
+                                                {
+                                                    <hr />
+                                                    <div class="form-group row">
+                                                        <div class="col-12">
+                                                            <h5 class="mb-3 font-weight-bold text-primary">Your Address Information:</h5>
+                                                        </div>
+                                                        <div class="col-12">
+                                                            @Html.DropDownListFor(m => m.AddressId, Model.UserAddressesList,
+                                                           "-Please select an address-", new { @class = "form-control" })
+                                                        </div>
+                                                        <span asp-validation-for="@Model.AddressId" class="text-danger"></span>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-12" id="addressInfo">
+                                                        </div>
+                                                    </div>
+
+                                                }
+                                                else if (Model.UserAddressesList! == null)
+                                                {
+                                                    <h5 class="text-danger font-weight-bold mb-3">Please add a default Address in your Account Management Page</h5>
+                                                }*@
+                                            <hr />
+                                            <div class="row">
+                                                <h5 class="col-12 mb-3 font-weight-bold text-primary">Booking Information</h5>
+                                                <div class="col-6">
+                                                    From: <input type="date" id="fromDate" class="form-control" asp-for="@Model.RentTimeStartDate" />
+                                                    <span asp-validation-for="@Model.RentTimeStartDate" class="text-danger"></span>
+                                                </div>
+                                                <div class="col-6">
+                                                    To: <input type="date" id="toDate" class="form-control" asp-for="@Model.RentTimeEndDate" />
+                                                    <span asp-validation-for="@Model.RentTimeEndDate" class="text-danger">@rentTimeEndDateError</span>
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-12 col-md-6 pb-1">
+                                <a asp-action="Index" class="btn btn-success btn-square form-control btn-lg">Back to List</a>
+                            </div>
+                            <div class="col-12 col-md-6 pb-1">
+                                @if (SignInManager.IsSignedIn(User))
+                                {
+                                    var userId = UserManager.GetUserId(User);
+                                    @if (userId != Model.Location.UserId)
+                                    {
+                                        var user = await UserManager.FindByIdAsync(userId);
+                                        @if (user.PhoneNumberConfirmed)
+                                        {
+                                            var AddToBookingListEnabled = true;
+                                            @if (HttpContextAccessor.HttpContext.Session.GetObject<List<CartLocationViewModel>>(SD.SessionCart) != null)
+                                            {
+                                                var sessionList = HttpContextAccessor.HttpContext.Session.GetObject<List<CartLocationViewModel>>(SD.SessionCart);
+                                                foreach (CartLocationViewModel model in sessionList)
+                                                {
+                                                    @if (model.locationId == Model.Location.Id)
+                                                    {
+                                                        AddToBookingListEnabled = false;
+                                                    }
+                                                }
+                                            }
+                                            @if (AddToBookingListEnabled)
+                                            {
+                                                <input type="hidden" asp-for="@Model.Location.Id" />
+                                                <button type="submit" class="btn btn-primary btn-square form-control btn-lg">Add to Booking List</button>
+
+                                            }
+                                            else
+                                            {
+                                                <button class="btn btn-primary btn-square form-control btn-lg" disabled>Item in Booking List</button>
+                                            }
+                                        }
+                                        else
+                                        {
+                                            <button class="btn btn-primary btn-square form-control btn-lg" disabled>Please Verify Phone Number</button>
+                                        }
+
+                                    }
+                                    else
+                                    {
+
+                                    }
+
+                                }
+                                else
+                                {
+                                    <button class="btn btn-primary btn-square form-control btn-lg" disabled>Please Sign In</button>
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="text-primary font-weight-bold">Contact Name: @Model.Location.ApplicationUser.Name</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="container rounded p-2">
+                            <div class="row">
+                                <div class="col-12 col-lg-12">
+                                    <h5 class="text-success">Phone Number: </h5><p>@Model.Location.ApplicationUser.PhoneNumber</p>
+                                </div>
+                                <div class="col-12 col-lg-12">
+                                    <h5 class="text-success">Email: </h5><p>@Model.Location.ApplicationUser.Email</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-12 col-md-6 pb-1">
+                                @*<a asp-action="Index" class="btn btn-success btn-square form-control btn-lg">Chat</a>*@
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        @*<h3 class="my-4">Near this Location</h3>
+            <div class="row">
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <a href="#">
+                        <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+                    </a>
+                </div>
+
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <a href="#">
+                        <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+                    </a>
+                </div>
+
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <a href="#">
+                        <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+                    </a>
+                </div>
+
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <a href="#">
+                        <img class="img-fluid" src="http://placehold.it/500x300" alt="">
+                    </a>
+                </div>
+
+            </div>*@
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $("#AddressId").on("change", function () {
+            var addressId = $("#AddressId").val();
+            if (addressId != null) {
+                $.ajax({
+                    "url": "/customer/home/GetAddressInfoBaseOnAddressId",
+                    "type": "GET",
+                    "datatype": "json",
+                    data: {
+                        addressId: addressId
+                    },
+                    "datatype": "json",
+                    success: function (data) {
+                        $("#addressInfo").empty();
+                        var address = "<h5>Address:  " + data.data.address + "</h5>";
+                        var phoneNumber = "<h5>Phone Number: " + data.data.phoneNumber + "</h5>";
+                        $("#addressInfo").append(address, phoneNumber);
+                    },
+                    error: function (err) {
+                        console.log(err);
+                    }
+                });
+            }
+            if (addressId == null || addressId == "" || addressId == "0") {
+                $("#addressInfo").remove();
+            }
+        });
+    </script>
+
+}

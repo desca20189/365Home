@@ -1,0 +1,19 @@
+﻿@model int  
+@{
+    ViewData["Title"] = "OrderConfirmation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container row">
+    <div class="col-12 text-center">
+        <h1 class="text-primary text-center">Booking Request Submitted</h1>
+        @*<img src="~/images/" width="50%" />*@
+    </div>
+    <div class="col-12 text-center" style="color:maroon">
+        <br/>
+        Thank you for your request. <br/>
+       <br/>
+        Your Request Number is @Model
+    </div>
+</div>
+

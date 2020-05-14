@@ -1,0 +1,8 @@
+C:\Users\DELL\Dropbox\Private\365Home\365Home\365Home.Ultility\bin\Debug\netcoreapp3.1\365Home.Ultility.deps.json
+C:\Users\DELL\Dropbox\Private\365Home\365Home\365Home.Ultility\bin\Debug\netcoreapp3.1\365Home.Ultility.dll
+C:\Users\DELL\Dropbox\Private\365Home\365Home\365Home.Ultility\bin\Debug\netcoreapp3.1\365Home.Ultility.pdb
+C:\Users\DELL\Dropbox\Private\365Home\365Home\365Home.Ultility\obj\Debug\netcoreapp3.1\365Home.Ultility.csprojAssemblyReference.cache
+C:\Users\DELL\Dropbox\Private\365Home\365Home\365Home.Ultility\obj\Debug\netcoreapp3.1\365Home.Ultility.AssemblyInfoInputs.cache
+C:\Users\DELL\Dropbox\Private\365Home\365Home\365Home.Ultility\obj\Debug\netcoreapp3.1\365Home.Ultility.AssemblyInfo.cs
+C:\Users\DELL\Dropbox\Private\365Home\365Home\365Home.Ultility\obj\Debug\netcoreapp3.1\365Home.Ultility.dll
+C:\Users\DELL\Dropbox\Private\365Home\365Home\365Home.Ultility\obj\Debug\netcoreapp3.1\365Home.Ultility.pdb

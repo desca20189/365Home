@@ -1,0 +1,153 @@
+﻿@model _365Home.Models.ViewModels.OrderViewModel
+@using _365Home.Ultility
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post">
+    @if (Model.OrderDetails.Count() > 0)
+    {
+        <br />
+        <div class="backgroundWhite container">
+            <div class="card">
+                <div class="card-header bg-dark text-light ml-0 row container">
+                    <div class="col-12 d-none d-md-block col-md-6 pb-1">
+                        <i class="fas fa-list"></i> &nbsp; Booking Summary
+                    </div>
+                    <div class="col-12 col-md-4 offset-md-2 text-right">
+                        <a asp-action="OrderHistory" asp-controller="Order" asp-area="Admin" class="btn btn-outline-info form-control btn-sm">Back to Booking List</a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="container rounded p-2">
+
+                        @foreach (OrderDetails orderDetail in Model.OrderDetails)
+                        {
+                        <div class="row">
+
+                                <div class="col-8">
+                                    <h4 class="d-flex justify-content-between align-items-center mb-3">
+                                        <span class="text-primary">Booking Details</span>
+                                    </h4>
+                                </div>
+                                <div class="col-4">
+                                    @if (orderDetail.Status == SD.StatusSubmitted)
+                                    {
+                                        <a asp-action="CancelOrderDetails" asp-controller="Order" asp-area="Admin" asp-route-id="@orderDetail.Id" class="btn btn-block btn-danger">Cancel this Booking</a>
+                                    }
+                                </div>
+
+                            
+
+
+                            <div class="col-12 col-lg-12 pb-4">
+                                <div class="row my-1">
+                                    <div class="col-3">
+                                        <label>Rent Time Start Date</label>
+                                    </div>
+                                    <div class="col-9">
+                                        <input value="@orderDetail.RentTimeStartDate.Value.ToString("MM/dd/yyyy")" id="txtName" readonly type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="row my-1">
+                                    <div class="col-3">
+                                        <label>Rent Time End Date</label>
+                                    </div>
+                                    <div class="col-9">
+                                        <input value="@orderDetail.RentTimeEndDate.Value.ToString("MM/dd/yyyy")" id="txtName" readonly type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <div class="row my-1">
+                                    <div class="col-3">
+                                        <label>Status</label>
+                                    </div>
+                                    <div class="col-9">
+                                        <input value="@orderDetail.Status" id="txtName" readonly type="text" class="form-control" />
+                                    </div>
+                                </div>
+                                <h5>Location's Detail</h5>
+                                @{
+                                    List<string> fullAddress = new List<string>();
+                                    if (orderDetail.Location.Address != null && orderDetail.Location.Address != "")
+                                    {
+                                        fullAddress.Add(orderDetail.Location.Address);
+                                    }
+                                    if (orderDetail.Location.Ward != null && orderDetail.Location.Ward.Name != null && orderDetail.Location.Ward.Name != "")
+                                    {
+                                        fullAddress.Add(orderDetail.Location.Ward.Name);
+                                    }
+                                    if (orderDetail.Location.District != null && orderDetail.Location.District.Name != null && orderDetail.Location.District.Name != "")
+                                    {
+                                        fullAddress.Add(orderDetail.Location.District.Name);
+                                    }
+                                    if (orderDetail.Location.Province != null && orderDetail.Location.Province.Name != null && orderDetail.Location.Province.Name != "")
+                                    {
+                                        fullAddress.Add(orderDetail.Location.Province.Name);
+                                    }
+                                    var displayAddress = String.Join(", ", fullAddress);
+
+                                }
+                                <hr />
+                                <div class="row">
+                                    <div class="col-3">
+                                        <label>Location Name</label>
+                                    </div>
+                                    <div class="col-9">
+                                        <a asp-area="Customer" asp-controller="Home" asp-action="LocationDetails" asp-route-id="@orderDetail.Location.Id" class="text-primary font-weight-bold card-link"><p>@orderDetail.Location.Name</p></a>
+                                    </div>
+                                    <div class="col-3">
+                                        <label>Location Address</label>
+                                    </div>
+                                    <div class="col-9">
+                                        <p>@displayAddress</p>
+                                    </div>
+                                    <div class="col-3">
+                                        <label>Location Area</label>
+                                    </div>
+                                    <div class="col-9">
+                                        <p>@string.Format("{0:#,0}", orderDetail.Location.Area) m<sup>2</sup></p>
+                                    </div>
+                                    <div class="col-3">
+                                        <label>Location Price</label>
+                                    </div>
+                                    <div class="col-9">
+                                        <p class="text-secondary">@string.Format("{0:#,0}", orderDetail.Location.Price)<span>&#8363;</span></p>
+                                    </div>
+                                    <div class="col-3">
+                                        <label>Location Description</label>
+                                    </div>
+                                    <div class="col-9">
+                                        @Html.Raw(orderDetail.Location.Description)
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+                        </div>
+                        }
+
+
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        @*@if (Model.OrderHeader.Status != SD.StatusApproved && Model.OrderHeader.Status != SD.StatusRejected)
+                            {
+                                <div class="col-6 offset-md-4 col-md-4 col-lg-2 offset-lg-8">
+                                    <a asp-action="Approve" asp-route-id="@Model.OrderHeader.Id" class="btn btn-success form-control">Approve</a>
+                                </div>
+                                <div class="col-6 col-md-4 col-lg-2">
+                                    <a asp-action="Reject" asp-route-id="@Model.OrderHeader.Id" class="btn btn-danger form-control">Reject</a>
+                                </div>
+                            }*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="backgroundWhite">No items to show</div>
+    }
+</form>

@@ -1,0 +1,89 @@
+﻿@model _365Home.Models.UserAddress
+@{
+    var title = "Create User Address";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post" asp-action="Upsert">
+    <div class="row px-2 mx-2 backgroundWhite border">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        @if (Model.Id != null)
+        {
+            <input type="hidden" asp-for="Id" />
+            title = "Edit User Address";
+        }
+
+        <div class="col-12">
+            <h2 class="text-primary">@title</h2>
+            <br />
+        </div>
+        <div class="col-8">
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="AddressName"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="AddressName" class="form-control" />
+                    <span asp-validation-for="AddressName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="PhoneNumber"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="PhoneNumber" class="form-control" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="Address"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="Address" class="form-control" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-4">
+                    <label asp-for="IsDefaultAddress">Is Default Address?</label>
+                </div>
+                <div class="col-8">
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" asp-for="IsDefaultAddress" id="IsDefaultAddressYes" value="true" name="IsDefaultAddress" class="custom-control-input">
+                        <label class="custom-control-label" for="IsDefaultAddressYes">Yes</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                        <input type="radio" asp-for="IsDefaultAddress" id="IsDefaultAddressNo" value="false" checked name="IsDefaultAddress" class="custom-control-input">
+                        <label class="custom-control-label" for="IsDefaultAddressNo">No</label>
+                    </div>
+                </div>
+               
+                @*<div class="col-4">
+                    <input asp-for="IsDefaultAddress" id="IsDefaultAddressYes" class="form-control" type="radio" value="true" />
+                    <label for="IsDefaultAddressYes">Yes</label>
+                    <input asp-for="IsDefaultAddress" id="IsDefaultAddressNo" class="form-control" type="radio" value="false" />
+                    <label for="IsDefaultAddressNo">No</label>
+                </div>
+                <div class="col-8">
+                    <span asp-validation-for="IsDefaultAddress" class="text-danger"></span>
+                </div>*@
+            </div>
+            <div class="form-group row">
+                <div class="col-8 offset-4">
+                    @if (Model.Id != null)
+                    {
+                        //Edit button and back to list
+                        <partial name="_EditAndBackToListButton" model="Model.Id" />
+                    }
+                    else
+                    {
+                        //Create button and back to list
+                        <partial name="_CreateAndBackToListButton" />
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

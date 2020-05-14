@@ -1,0 +1,11 @@
+﻿@model string
+
+    <div class="row">
+        <div class="col">
+            @*This @model is actually the id using in the Upsert.cshtml @Model.Id*@
+            <button type="submit" class="btn btn-primary form-control" asp-route-id="@Model">Update</button>
+        </div>
+        <div class="col">
+            <a asp-action="Index" class="btn btn-success form-control">Back To List</a>
+        </div>
+    </div>

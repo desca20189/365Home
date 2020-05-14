@@ -1,0 +1,115 @@
+﻿@model ApplicationUser
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="border backgroundWhite">
+    <div class="row">
+        <div class="col-7">
+            <h2 class="text-info">Details</h2>
+        </div>
+        <div class="col-5">
+            <a asp-action="Index" asp-controller="User" class="btn btn-block btn-info">Back to User List</a>
+        </div>
+    </div>
+    <br />
+    @if (Model.Id != null || Model.Id != "")
+    {
+        <form method="post">
+            <div class="row">
+                <div class="col-2 mt-3">
+                    <h5 class="form-check-label">Name:  </h5>
+                </div>
+                <div class="col-10 mt-3">
+                    @Model.Name <input type="hidden" asp-for="@Model.Name"/>
+                </div>
+                <div class="col-2 mt-3">
+                    <h5 class="form-check-label">Username:  </h5>
+                </div>
+                <div class="col-10 mt-3">
+                    @Model.UserName <input type="hidden" asp-for="@Model.UserName" />
+                </div>
+                <div class="col-2 mt-3">
+                    <h5 class="form-check-label">Email:  </h5>
+                </div>
+                <div class="col-10 mt-3">
+                    @Model.Email <input type="hidden" asp-for="@Model.Email" />
+                </div>
+                <div class="col-2 mt-3">
+                    <h5 class="form-check-label">Phone Number:  </h5>
+                </div>
+                <div class="col-10 mt-3">
+                    @Model.PhoneNumber <input type="hidden" asp-for="@Model.PhoneNumber" />
+                </div>
+                <div class="col-2 mt-3">
+                    <h5 class="form-check-label">Email Verified: </h5>
+                </div>
+                <div class="col-5 mt-3">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" id="EmailConfirmedYes" asp-for="@Model.EmailConfirmed" type="radio" value="true" />
+                        <label class="form-check-label" for="EmailConfirmedYes">Yes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" id="EmailConfirmedNo" asp-for="@Model.EmailConfirmed" type="radio" value="false" />
+                        <label class="form-check-label" for="EmailConfirmedNo">No</label>
+                    </div>
+                </div>
+                <div class="col-5 mt-3">
+                    @if (Model.EmailConfirmed)
+                    {
+                        <a class="btn btn-primary btn-block disabled" >
+                            Resend Email Verification
+                        </a>
+                    }
+                    else
+                    {
+                        <button type="button" class="btn btn-primary btn-block" id="resend-email" data-url="/admin/user/ResendEmailVerification" data-userid="@Model.Id">
+                            Resend Email Verification
+                        </button>
+                    }
+                </div>
+                <div class="col-2 mt-3">
+                    <button type="submit" class="btn btn-block btn-primary">Save Changes</button>
+                </div>
+            </div>
+        </form>
+    }
+
+    else
+    {
+        <p>No Users Exist. </p>
+    }
+</div>
+
+@section Scripts{
+    <script>
+        $('#resend-email').on('click', function () {
+            var btn = $(this);
+            swal({
+                title: "Resend Email Verification?",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Yes, send it!",
+                closeOnConfirm: true
+            }, function () {
+                $.ajax({
+                    method: "POST",
+                    url: (btn.data('url')),
+                    data: { userId: btn.data('userid')},
+                    success: function (data) {
+                        if (data.success) {
+                            toastr.success(data.message);
+                        }
+                        else {
+                            toastr.error(data.message);
+                        }
+                    }
+                });
+            })
+        });
+</script>
+}
